@@ -71,5 +71,16 @@ pipeline{
                 }
             }
         }
+        stage("Image push to Docker Hub"){
+            steps{
+                script{
+                    withCredentials([string(credentialsId: 'docker_pass', variable: 'docker-password')]) {
+                        sh 'docker login -u anuragjoshi01 -p ${docker-password}'
+                        sh 'docker image push anuragjoshi01/$JOB_NAME:v1.$BUILD_ID'
+                        sh 'docker image push anuragjoshi01/$JOB_NAME:latest'
+                    }
+                }
+            }
+        }
     }
 }
