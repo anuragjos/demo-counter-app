@@ -1,0 +1,14 @@
+kind: Service
+apiversion: v1
+metadata:
+  name: myservice
+  labels:
+     app: myspringbootapp
+spec:
+  selector: 
+     app:  myspringbootapp
+  type:
+  ports:
+  - nodePort: 30036
+    port: 80
+    targetPort: 9090
