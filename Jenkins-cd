@@ -1,8 +1,5 @@
-pipeline {
+pipleine{
      agent any
-     parameters{
-          choice(name: 'action', choices: 'create\destory\destoryeksclsuter', description: 'Create/Update or destory the eks cluster' )
-     }
      stages{
           stage("Git Checkout"){
                steps{
@@ -11,9 +8,3 @@ pipeline {
           }
      }
 }
-
-
-
-
-     
-       
